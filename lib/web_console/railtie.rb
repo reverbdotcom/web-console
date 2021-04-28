@@ -10,7 +10,7 @@ module WebConsole
       require "bindex"
       require "web_console/extensions"
 
-      ActionDispatch::DebugExceptions.register_interceptor(Interceptor)
+      ActionDispatch::DebugExceptions.register_interceptor(Interceptor) if Rails::VERSION::MAJOR >= 6
     end
 
     initializer "web_console.development_only" do
